@@ -1,0 +1,26 @@
+<script src="https://app.globalscale.cc/globalscale.tracker.js"></script>
+<script>
+    GlobalscaleTracker.getFingerprint(includeData = true).then(
+        function(tracker) {
+            api_url = 'https://app.globalscale.cc/api/fingerprint';
+            postdata = {
+                "fingerprint": tracker.hash,
+                "data": tracker.data,
+                "version": GlobalscaleTracker.getVersion()
+            }
+            let GlobalscaleTracker_API = fetch(api_url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Referer': window.location.href
+                },
+                body: JSON.stringify(postdata) 
+                })
+            GlobalscaleTracker_API.then(res =>
+                res.json()).then(json => {
+                  alert(json.fingerprint);
+                  alert(tracker.hash);
+                })
+            }
+        );
+</script>

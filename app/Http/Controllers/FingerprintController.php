@@ -25,7 +25,7 @@ class FingerprintController extends Controller
         $fingerprint->name = $request->name;
         $fingerprint->description = $request->description;
         $fingerprint->save();
-        return response()->json($project);
+        return response()->json($fingerprint);
     }
  
     /**
@@ -33,7 +33,7 @@ class FingerprintController extends Controller
      */
     public function show(string $id)
     {
-        $project = Fingerprint::find($id);
+        $fingerprint = Fingerprint::find($id);
         return response()->json($fingerprint);
     }
  

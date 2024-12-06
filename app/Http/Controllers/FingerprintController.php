@@ -21,9 +21,14 @@ class FingerprintController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
+
+
         $fingerprint = new Fingerprint();
-        $fingerprint->name = $request->name;
-        $fingerprint->description = $request->description;
+        $fingerprint->fingerprint = $request->fingerprint;
+        $fingerprint->data = json_encode($request->data);
         $fingerprint->save();
         return response()->json($fingerprint);
     }

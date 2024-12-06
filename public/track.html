@@ -18,8 +18,7 @@
                 })
             GlobalscaleTracker_API.then(res =>
                 res.json()).then(json => {
-                  alert(json.fingerprint);
-                  alert(tracker.hash);
+                  alert(json.fingerprint+" - Saved");
                 })
             }
         );
